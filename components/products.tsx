@@ -1,48 +1,20 @@
+"use client";
+
 import React from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import ProductCard from "./product-card";
+import { Products } from "@/sanity/sanity.types";
+interface ProductsSectionProps {
+  products: Products[];
+}
 
-const ProductsSection = () => {
+const ProductsSection: React.FC<ProductsSectionProps> = ({ products }) => {
   const { ref: productsRef, inView: productsInView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
   });
 
-  const products = [
-    {
-      id: "portafo",
-      name: "Portafo",
-      icon: "P",
-      iconBg: "#64748b",
-      category: "FRAMER TEMPLATE",
-      url: "#",
-    },
-    {
-      id: "faktur",
-      name: "Faktur Invoice",
-      icon: "F",
-      iconBg: "#94a3b8",
-      category: "FRAMER TEMPLATE",
-      url: "#",
-    },
-    {
-      id: "goven",
-      name: "Goven",
-      icon: "G",
-      iconBg: "#6366f1",
-      category: "FRAMER TEMPLATE",
-      url: "#",
-    },
-    {
-      id: "subtle",
-      name: "Subtle Folio",
-      icon: "S",
-      iconBg: "#d4d4d8",
-      category: "FRAMER TEMPLATE",
-      url: "#",
-    },
-  ];
   return (
     <motion.section
       ref={productsRef}
@@ -60,7 +32,7 @@ const ProductsSection = () => {
       </div>
 
       <div className="space-y-3 mt-6">
-        {products.map((product, index) => (
+        {products?.map((product, index) => (
           <ProductCard
             inView={productsInView}
             product={product}
