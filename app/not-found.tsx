@@ -4,12 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import SocialLinks from "@/components/social-links";
 import Footer from "@/components/footer";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[85vh] flex flex-col">
+    <div className="bg-background dark:bg-[#212121] rounded-lg  min-h-[85vh] flex flex-col">
       <motion.div
         className="flex-1 flex flex-col items-center justify-center text-center p-3"
         initial={{ opacity: 0, y: 20 }}
