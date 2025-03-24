@@ -35,12 +35,10 @@ export default function HireMePage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
 
-      // Reset form after showing success message
       setTimeout(() => {
         setIsSubmitted(false);
         setFormState({
@@ -68,7 +66,7 @@ export default function HireMePage() {
   };
 
   return (
-    <div className="min-h-[70vh] flex flex-col">
+    <div className="bg-background dark:bg-[#212121] rounded-lg  min-h-[70vh] flex flex-col">
       <motion.section
         ref={ref}
         className="flex-1 rounded-xl p-3 mb-6"
