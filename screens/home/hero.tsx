@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
@@ -42,7 +44,7 @@ const HeroSection = () => {
         </span>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
+      <div className="flex md:flex-col flex-row justify-between items-center md:items-start">
         <div>
           <motion.h1
             className="text-3xl font-bold mb-1"
