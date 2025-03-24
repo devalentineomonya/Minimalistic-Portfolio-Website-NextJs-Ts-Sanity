@@ -3,22 +3,10 @@
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
-
-interface Project {
-  id: string;
-  name: string;
-  icon: string;
-  iconBg: string;
-  description: string;
-  client?: string;
-  company?: string;
-  projectType?: string;
-  year?: string;
-  fullDescription?: string;
-}
+import { Projects } from "@/sanity/sanity.types";
 
 interface ProjectCardProps {
-  project: Project;
+  project: Projects;
   index: number;
   inView: boolean;
 }
@@ -47,11 +35,11 @@ export default function ProjectCard({
       whileTap={{ scale: 0.98 }}
       layout
     >
-      <Link href="/projects/123">
+      <Link href={`/projects/${project.id}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <motion.div
-              className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium"
+              className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium text-lg "
               style={{ backgroundColor: project.iconBg }}
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
@@ -60,7 +48,7 @@ export default function ProjectCard({
             </motion.div>
             <div>
               <h3 className="font-medium">{project.name}</h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 truncate pr-4">
                 {project.description}
               </p>
             </div>
