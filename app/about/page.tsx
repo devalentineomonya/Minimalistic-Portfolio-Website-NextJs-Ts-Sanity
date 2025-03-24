@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
@@ -55,7 +53,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-[85vh] flex flex-col">
+    <div className="bg-background dark:bg-[#212121] rounded-lg  min-h-[85vh] flex flex-col">
       <motion.section
         ref={bioRef}
         className=" rounded-xl p-3 mb-6"
