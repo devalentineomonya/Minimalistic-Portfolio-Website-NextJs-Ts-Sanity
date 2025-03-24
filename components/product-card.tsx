@@ -3,18 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-
-interface Product {
-  id: string;
-  name: string;
-  icon: string;
-  iconBg: string;
-  category: string;
-  url: string;
-}
+import { Products } from "@/sanity/sanity.types";
 
 interface ProductCardProps {
-  product: Product;
+  product: Products;
   index: number;
   inView: boolean;
 }
@@ -39,7 +31,7 @@ export default function ProductCard({
       }}
       whileHover={{
         scale: 1.05,
-             }}
+      }}
       whileTap={{ scale: 0.98 }}
     >
       <Link href={product.url} className="block">
