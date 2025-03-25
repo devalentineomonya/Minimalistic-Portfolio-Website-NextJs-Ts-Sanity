@@ -7,7 +7,7 @@
 
 A modern, minimalistic portfolio website built with Next.js, TypeScript, and Sanity CMS, featuring smooth animations powered by Framer Motion. Perfect for developers and designers looking to showcase their work with style.
 
-![Project Screenshot](/screenshot.jpg) <!-- Replace with actual screenshot path -->
+![Project Screenshot](./public/screebshots/home.png) <!-- Replace with actual screenshot path -->
 
 ## Features ✨
 
@@ -41,9 +41,9 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 
 ## Screenshots 🖼️
 
-| Light Mode | Dark Mode | Project Details |
+| Light Mode | Dark Mode | Project Studio |
 |------------|-----------|-----------------|
-| ![Light Mode](/screenshots/light.jpg) | ![Dark Mode](/screenshots/dark.jpg) | ![Details](/screenshots/details.jpg) |
+| ![Light Mode](./public/screenshots/light.png) | ![Dark Mode](./public/screenshots/dark.png) | ![Studio](./public/screenshots/studio.png) |
 
 ## Getting Started 🏁
 
