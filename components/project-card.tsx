@@ -38,6 +38,7 @@ export default function ProjectCard({
       <Link href={`/projects/${project.id}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
+            
             <motion.div
               className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium text-lg "
               style={{ backgroundColor: project.iconBg }}
@@ -46,6 +47,7 @@ export default function ProjectCard({
             >
               {project.icon}
             </motion.div>
+
             <div>
               <h3 className="font-medium">{project.name}</h3>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 truncate max-w-96 mr-4">

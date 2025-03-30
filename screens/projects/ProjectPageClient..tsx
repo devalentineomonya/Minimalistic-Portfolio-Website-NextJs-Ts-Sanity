@@ -73,46 +73,63 @@ export default function ProjectPageClient({
           </div>
         </div>
 
-        <div className="flex items-center space-x-4 mb-4">
+        <div className="flex items-center space-x-4 mb-4 gap-x-2">
           <motion.div
-            className="h-12 w-12 rounded-full flex items-center justify-center text-white font-medium"
+            className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium text-lg "
             style={{ backgroundColor: project.iconBg }}
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
             {project.icon}
           </motion.div>
-          <h1 className="text-3xl font-bold">{project.name}</h1>
+
+          <h1 className="text-3xl font-bold">
+            {project.name} - {project.businessOwner}
+          </h1>
         </div>
 
         <p className="text-zinc-600 dark:text-zinc-400 mb-4">
           {project.description}
         </p>
-
-        <Link href={project.liveDemo || "#"} className="inline-block mb-6">
-          <motion.button
-            className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
+        <div className="flex items-center gap-x-2">
+          <Link href={project.liveDemo || "#"} className="inline-block mb-6">
+            <motion.button
+              className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
              flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3"
-            whileHover={{ scale: 1.03, x: 3 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <span>Visit Website</span>
-            <ExternalLink size={16} />
-          </motion.button>
-        </Link>
+              whileHover={{ scale: 1.03, x: 3 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span>Visit Website</span>
+              <ExternalLink size={16} />
+            </motion.button>
+          </Link>
 
-        <Link href={project.githubLink || "#"} className="inline-block mb-6 mx-4" >
-          <motion.button
-            className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
+          <Link
+            href={project.githubLink || "#"}
+            className="inline-block mb-6 ml-4"
+          >
+            <motion.button
+              className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
              flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3"
-            whileHover={{ scale: 1.03, x: 3 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            <span>Visit Github</span>
-            <Github size={16} />
-          </motion.button>
-        </Link>
-
+              whileHover={{ scale: 1.03, x: 3 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span>Visit Github</span>
+              <Github size={16} />
+            </motion.button>
+          </Link>
+        </div>
+        <div className="flex flex-wrap gap-2 my-5 w-full">
+          {project.techStack?.map((tech, index) => (
+            <div
+              key={index}
+              className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
+             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow px-3 py-1 rounded-md gap-x-3 my-5"
+            >
+              {tech}
+            </div>
+          ))}
+        </div>
         <motion.div
           className="rounded-lg overflow-hidden mb-6"
           whileHover={{ scale: 1.02 }}
@@ -125,20 +142,6 @@ export default function ProjectPageClient({
             height={400}
             className="w-full object-cover"
           />
-        </motion.div>
-
-        <motion.div
-          ref={contentRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{
-            opacity: contentInView ? 1 : 0,
-            y: contentInView ? 0 : 20,
-          }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <p className="text-zinc-600 dark:text-zinc-400 mb-6">
-            {project.businessOwner}
-          </p>
         </motion.div>
 
         <motion.div
