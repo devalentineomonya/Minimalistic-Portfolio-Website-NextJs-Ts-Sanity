@@ -1,13 +1,13 @@
 # Next.js + TypeScript + Sanity Minimalistic Portfolio Website 🚀
 
-[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![Sanity](https://img.shields.io/badge/Sanity-000000?style=for-the-badge&logo=sanity)](https://www.sanity.io/)
-[![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer)](https://www.framer.com/motion/)
+![Available for Work Banner](https://img.shields.io/badge/Available-For%20Work-brightgreen)
+![Next.js](https://img.shields.io/badge/Next.js-15.2.x-000000?logo=next.js)
+![Sanity](https://img.shields.io/badge/Sanity-CMS-blue)
+![Framer Motion](https://img.shields.io/badge/Animations-Framer%20Motion-purple)
 
 A modern, minimalistic portfolio website built with Next.js, TypeScript, and Sanity CMS, featuring smooth animations powered by Framer Motion. Perfect for developers and designers looking to showcase their work with style.
 
-![Project Screenshot](./public/screebshots/home.png) <!-- Replace with actual screenshot path -->
+![Project Screenshot](./public/screebshots/home.png)
 
 ## Features ✨
 
@@ -23,17 +23,20 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 ## Technologies Used 🛠️
 
 ### Core Stack
+
 - **Next.js** - React framework for server-side rendering and static site generation
 - **TypeScript** - Type-safe JavaScript implementation
 - **Sanity CMS** - Headless content management system
 - **Tailwind CSS** - Utility-first CSS framework
 
 ### Animation & UI
+
 - [**Framer Motion**](https://www.framer.com/motion/) - Production-ready animation library
 - **React Icons** - Popular icons for React applications
 - **Heroicons** - Beautiful hand-crafted SVG icons
 
 ### Utilities
+
 - **Groq** - Sanity's query language
 - **Date-fns** - Modern date utility library
 - **React Intersection Observer** - Detect element visibility
@@ -41,13 +44,14 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 
 ## Screenshots 🖼️
 
-| Light Mode | Dark Mode | Project Studio |
-|------------|-----------|-----------------|
+| Light Mode                                    | Dark Mode                                   | Project Studio                             |
+| --------------------------------------------- | ------------------------------------------- | ------------------------------------------ |
 | ![Light Mode](./public/screenshots/light.png) | ![Dark Mode](./public/screenshots/dark.png) | ![Studio](./public/screenshots/studio.png) |
 
 ## Getting Started 🏁
 
 ### Prerequisites
+
 - Node.js ≥14.x
 - npm/yarn
 - Sanity account
@@ -55,27 +59,30 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
-   git clone https://github.com/devalentineomonya/NextJs-Ts-Sanity-Minimalistic-Portfolio-Website.git
+   git clone https://github.com/devalentineomonya/Minimalistic-Portfolio-Website-NextJs-Ts-Sanity.git
    cd NextJs-Ts-Sanity-Minimalistic-Portfolio-Website
    ```
 
-2. **Install dependencies**
+Install dependencies**
+
    ```bash
-   npm install
-   # or
-   yarn install
+   pnpm install
+
    ```
 
 3. **Sanity Setup**
+
    ```bash
    cd studio
-   sanity install
+  npx sanity install
    sanity start
    ```
 
 4. **Environment Variables**
    Create `.env.local` in root directory:
+
    ```env
    NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
    NEXT_PUBLIC_SANITY_DATASET=production
@@ -91,7 +98,9 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 ## Configuration ⚙️
 
 ### Sanity Content Models
+
 Modify schemas in `studio/schemas` to match your content structure:
+
 ```javascript
 // Example Project Schema
 {
@@ -105,7 +114,9 @@ Modify schemas in `studio/schemas` to match your content structure:
 ```
 
 ### Animation Customization
+
 Edit Framer Motion props in components:
+
 ```tsx
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -140,6 +151,7 @@ Edit Framer Motion props in components:
 ## Contributing 🤝
 
 Contributions are welcome! Please follow these steps:
+
 1. Fork the project
 2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
@@ -159,4 +171,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-✨ **Crafted with care by [Your Name]** · [Live Demo](https://devalentine.me) · [Report Bug]([https://github.com/yourusername/repo](https://github.com/devalentineomonya/NextJs-Ts-Sanity-Minimalistic-Portfolio-Website/issues)
+✨ **Crafted with care by [Your Name]** · [Live Demo](https://v3.devalentine.me) · [Report Bug]([https://github.com/devalentineomonya/repo](https://github.com/devalentineomonya/Minimalistic-Portfolio-Website-NextJs-Ts-Sanity/issues)
