@@ -24,7 +24,6 @@ export default function ProjectsPageClient({
     threshold: 0.1,
   });
 
-  console.log(projects);
 
   return (
     <div className="bg-background dark:bg-[#212121] rounded-lg  min-h-[85vh] flex flex-col">

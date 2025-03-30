@@ -37,7 +37,6 @@ export default async function ProjectData({
     data: Projects[];
   };
 
-  console.log({ project, id, PROJECT_QUERY });
   if (!project) {
     notFound();
   }
