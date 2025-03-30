@@ -54,7 +54,7 @@ export default function ProductCard({
             </div>
           </div>
           <div className="flex items-center">
-            <span className="text-xs text-zinc-500 dark:text-zinc-300 mr-2 inline-block dark:bg-[#424242] bg-gray-100 py-1.5 px-3 rounded-full  backdrop-blur-sm truncate uppercase">
+            <span className="text-xs text-zinc-500 dark:text-zinc-300 mr-2 inline-block dark:bg-[#424242] bg-gray-100 py-1.5 px-3 rounded-full  backdrop-blur-sm truncate uppercase max-w-40">
               {product.category}
             </span>
             <motion.div

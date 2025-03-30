@@ -133,7 +133,7 @@ export default function ProductsClient({
           design. My work strives to enhance experiences and inspire.
         </motion.p>
 
-        <ProjectsSection projects={projects} />
+        <ProjectsSection className="mt-6" projects={projects} />
       </motion.section>
 
       <Footer />

@@ -8,9 +8,9 @@ export default async function ProjectsPage() {
   const PROJECTS_QUERY = defineQuery(`
     *[_type == "projects"] | order(_createdAt desc) {
       _id,
+      id,
       name,
       description,
-      "id": slug.current,
       iconBg,
       icon,
       client,

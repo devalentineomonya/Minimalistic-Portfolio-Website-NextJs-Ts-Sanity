@@ -52,7 +52,7 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 
 ### Prerequisites
 
-- Node.js ≥14.x
+- Node.js ≥18.x
 - npm/yarn
 - Sanity account
 

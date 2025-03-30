@@ -6,10 +6,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Copy } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const HeroSection = () => {
   const [copied, setCopied] = useState(false);
-
+  const isMobile = useIsMobile();
   const { ref: heroRef, inView: heroInView } = useInView({
     triggerOnce: false,
     threshold: 0.2,
@@ -34,9 +35,9 @@ const HeroSection = () => {
     >
       <div className="flex justify-between items-start mb-4">
         <div className="flex items-center">
-          <span className="h-2 w-2 bg-green-500 rounded-full mr-2"></span>
+          <span className="h-2 w-2 bg-green-500 animate-ping rounded-full mr-2"></span>
           <span className="text-zinc-600 dark:text-zinc-400">
-            Product Designer
+            Software Engineer
           </span>
         </div>
         <span className="text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-500 px-2 py-1 rounded-full">
@@ -44,15 +45,19 @@ const HeroSection = () => {
         </span>
       </div>
 
-      <div className="flex md:flex-col flex-row justify-between items-center md:items-start">
-        <div>
+      <div
+        className={`flex ${
+          isMobile ? "flex-col items-start" : "flex-row  items-center"
+        } justify-between  `}
+      >
+        <div className="flex-1">
           <motion.h1
             className="text-3xl font-bold mb-1"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            I'm John Doe
+            I'm Valentine,
           </motion.h1>
           <motion.p
             className="text-zinc-600 dark:text-zinc-400 mb-4"
@@ -60,9 +65,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Product designer from Jakarta, ID.
+            Software Engineer from Nairobi, Kenya.
             <br />
-            Currently designing at Rectangle.
+            Currently a self-employed Freelancer .
           </motion.p>
 
           <div className="flex space-x-2">
@@ -99,7 +104,7 @@ const HeroSection = () => {
             src="/home-avatar.png"
             alt="John Doe"
             fill
-            className="object-cover object-center h-full w-full"
+            className="object-cover object-center h-full w-full "
           />
         </motion.div>
       </div>

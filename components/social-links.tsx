@@ -1,16 +1,28 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Twitter, Instagram, Dribbble, Linkedin } from "lucide-react"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { Twitter, Instagram, Dribbble, Linkedin, Github } from "lucide-react";
+import Link from "next/link";
 
 export default function SocialLinks() {
   const socialLinks = [
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Dribbble, href: "#", label: "Dribbble" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-  ]
+    { icon: Twitter, href: "https://x.com/devalentine_", label: "Twitter" },
+    {
+      icon: Instagram,
+      href: "https://instagram.com/devalentineomonya",
+      label: "Instagram",
+    },
+    {
+      icon: Github,
+      href: "https://github.com/devalentineomonya",
+      label: "GitHub",
+    },
+    {
+      icon: Linkedin,
+      href: "https://linkedin.com/in/devalentineomonya",
+      label: "LinkedIn",
+    },
+  ];
 
   return (
     <motion.div
@@ -26,7 +38,7 @@ export default function SocialLinks() {
 
       <div className="flex justify-center space-x-6">
         {socialLinks.map((social, index) => (
-          <Link href={social.href} key={social.label}>
+          <Link target="_blank" href={social.href} key={social.label}>
             <motion.div
               className="p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white dark:bg-[#212121] bg-white rounded-full shadow-md backdrop-blur-sm"
               whileHover={{
@@ -48,5 +60,5 @@ export default function SocialLinks() {
         ))}
       </div>
     </motion.div>
-  )
+  );
 }

@@ -48,7 +48,7 @@ export default function ProjectCard({
             </motion.div>
             <div>
               <h3 className="font-medium">{project.name}</h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 truncate pr-4">
+              <p className="text-sm text-zinc-500 dark:text-zinc-400 truncate max-w-96 mr-4">
                 {project.description}
               </p>
             </div>
