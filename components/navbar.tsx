@@ -12,7 +12,6 @@ export default function Navbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true)
   }, [])
