@@ -53,54 +53,57 @@ A modern, minimalistic portfolio website built with Next.js, TypeScript, and San
 ### Prerequisites
 
 - Node.js ≥18.x
-- npm/yarn
-- Sanity account
+- npm/yarn/pnpm
+- Sanity account (free tier available)
 
 ### Installation
 
 1. **Clone the repository**
-
    ```bash
    git clone https://github.com/devalentineomonya/Minimalistic-Portfolio-Website-NextJs-Ts-Sanity.git
-   cd NextJs-Ts-Sanity-Minimalistic-Portfolio-Website
+   cd Minimalistic-Portfolio-Website-NextJs-Ts-Sanity
    ```
 
-Install dependencies**
-
+2. **Install dependencies**
    ```bash
    pnpm install
-
    ```
 
-3. **Sanity Setup**
-
-   ```bash
-   cd studio
-  npx sanity install
-   sanity start
-   ```
-
-4. **Environment Variables**
+3. **Environment Setup**
    Create `.env.local` in root directory:
-
    ```env
    NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
    NEXT_PUBLIC_SANITY_DATASET=production
    ```
 
-5. **Run Development Server**
+4. **Run Development Server**
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   pnpm dev
    ```
+
+5. **Access Sanity Studio**
+   Navigate to [http://localhost:3000/studio](http://localhost:3000/studio) in your browser
+   - Log in with your Sanity credentials
+   - Start managing content immediately
+
+## Key Features 🔥
+
+### Integrated Sanity Studio
+- Direct CMS access through `/studio` route
+- Real-time content previews
+- Custom content schemas
+- Collaborative editing environment
+
+### Animation System
+- Page transition presets
+- Scroll-triggered animations
+- Interactive hover states
+- Staggered element reveals
 
 ## Configuration ⚙️
 
 ### Sanity Content Models
-
-Modify schemas in `studio/schemas` to match your content structure:
-
+Modify schemas in `app/(admin)/studio/schemas`:
 ```javascript
 // Example Project Schema
 {
@@ -108,67 +111,42 @@ Modify schemas in `studio/schemas` to match your content structure:
   title: 'Project',
   type: 'document',
   fields: [
-    // Add custom fields here
+    // Customize fields here
   ]
 }
 ```
 
-### Animation Customization
-
-Edit Framer Motion props in components:
-
-```tsx
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.5, delay: 0.2 }}
->
-  {/* Your content */}
-</motion.div>
+### Theme Customization
+Edit `tailwind.config.ts` for design changes:
+```typescript
+export default {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#your-hex-code',
+      }
+    }
+  }
+}
 ```
 
-## Key Framer Motion Implementations 🌀
-
-1. **Page Transitions**
-   - Smooth route changes with `AnimatePresence`
-2. **Hover Effects**
-   - Interactive element scaling and shadows
-3. **Scroll Animations**
-   - Reveal animations with `useInView`
-4. **Staggered Loads**
-   - Sequential element animations
-5. **Interactive Components**
-   - Animated buttons and cards
-
 ## Roadmap 🗺️
-
-- [ ] Add dark mode toggle
-- [ ] Implement blog functionality
-- [ ] Add project filtering
-- [ ] Enhance mobile animations
-- [ ] Add contact form integration
-
-## Contributing 🤝
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- [ ] Dark mode toggle
+- [ ] Blog functionality
+- [ ] Project filtering
+- [ ] Enhanced mobile animations
+- [ ] Contact form integration
 
 ## License 📄
+Distributed under the MIT License. See `LICENSE` for details.
 
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## Acknowledgements 🏆
-
-- [Framer Motion](https://www.framer.com/motion/) for incredible animation capabilities
-- Sanity team for the powerful headless CMS
-- Next.js community for amazing documentation
-- Tailwind CSS for utility-first inspiration
+## Contact 📧
+**Valentine Omonya** - [valomosh254@gmail.com](mailto:valomosh254@gmail.com)  
+Live Demo: [https://v3.devalentine.me](https://v3.devalentine.me)  
+Issue Tracker: [https://github.com/devalentineomonya/Minimalistic-Portfolio-Website-NextJs-Ts-Sanity/issues](https://github.com/devalentineomonya/Minimalistic-Portfolio-Website-NextJs-Ts-Sanity/issues)
 
 ---
 
-✨ **Crafted with care by [Your Name]** · [Live Demo](https://v3.devalentine.me) · [Report Bug]([https://github.com/devalentineomonya/repo](https://github.com/devalentineomonya/Minimalistic-Portfolio-Website-NextJs-Ts-Sanity/issues)
+✨ **Crafted with care by Valentine Omonya**  
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue?logo=github)](https://github.com/devalentineomonya)
+[![X(Twitter)](https://img.shields.io/badge/Twitter-Follow-blue?logo=twitter)](https://x.com/devalentine_)
