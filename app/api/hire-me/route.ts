@@ -11,10 +11,8 @@ interface EmailRequestBody {
 
 export async function POST(request: NextRequest) {
   try {
-    // Parse request body
     const body = (await request.json()) as EmailRequestBody
 
-    // Validate input
     if (!body.name || !body.email || !body.message) {
       return NextResponse.json(
         { message: 'All fields are required' },

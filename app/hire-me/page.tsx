@@ -1,7 +1,5 @@
 "use client";
 
-import type React from "react";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
@@ -15,6 +13,7 @@ export default function HireMePage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const { ref, inView } = useInView({
     triggerOnce: false,
@@ -30,23 +29,36 @@ export default function HireMePage() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch("/api/hire-me", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to send message");
+      }
+
       setIsSubmitted(true);
+      setFormState({ name: "", email: "", message: "" });
 
       setTimeout(() => {
         setIsSubmitted(false);
-        setFormState({
-          name: "",
-          email: "",
-          message: "",
-        });
       }, 3000);
-    }, 1500);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -64,8 +76,15 @@ export default function HireMePage() {
     visible: { opacity: 1, y: 0 },
   };
 
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isFormValid =
+    formState.name.trim() !== "" &&
+    isValidEmail(formState.email) &&
+    formState.message.trim() !== "";
+
   return (
-    <div className="bg-background dark:bg-[#212121] rounded-lg  min-h-[70vh] flex flex-col">
+    <div className="bg-background dark:bg-[#212121] rounded-lg min-h-[70vh] flex flex-col">
       <motion.section
         ref={ref}
         className="flex-1 rounded-xl p-3 mb-6"
@@ -133,13 +152,23 @@ export default function HireMePage() {
             />
           </motion.div>
 
+          {error && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mb-4 p-3 bg-red-100 text-red-700 rounded-md"
+            >
+              {error}
+            </motion.div>
+          )}
+
           <motion.div variants={itemVariants}>
             <motion.button
               type="submit"
               className="isolate relative w-full flex items-center space-x-2 bg-black dark:bg-[#373737] text-white px-4 py-4 rounded-md text-sm shadow-[0px_8px_16px_0px_rgba(22,_22,_22,_0),_0px_1px_1px_0px_rgba(23,_23,_23,_0.1),_inset_0px_-1px_1px_0px_var(rgba(204,_204,_204,_.1),_rgb(77,_77,_77)),_0px_0px_0px_5px_var(rgba(0,_0,_0,_0.16),rgba(0,_0,_0,_0.1))] justify-center"
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              disabled={isSubmitting || isSubmitted}
+              disabled={!isFormValid || isSubmitting || isSubmitted}
             >
               <motion.div
                 className="absolute inset-0 bg-green-500/50 -z-10"
