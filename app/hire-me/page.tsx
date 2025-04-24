@@ -5,7 +5,6 @@ import type React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import SocialLinks from "@/components/social-links";
 import Footer from "@/components/footer";
 
 export default function HireMePage() {

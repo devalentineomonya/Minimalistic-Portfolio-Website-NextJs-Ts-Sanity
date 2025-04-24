@@ -17,7 +17,7 @@ const HeroSection = () => {
   });
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("brian.do@example.com");
+    navigator.clipboard.writeText("valomosh254@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
