@@ -58,7 +58,7 @@ export default function MotionSection({ projects }: ProjectsMotionSectionProps) 
         whileHover={{ scale: 1.02 }}
       >
         <Image
-          src="/placeholder.svg?height=400&width=400"
+          src="/about.png"
           alt="Valentine"
           width={400}
           height={400}
