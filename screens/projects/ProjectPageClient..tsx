@@ -23,10 +23,6 @@ export default function ProjectPageClient({
     threshold: 0.1,
   });
 
-  const { ref: contentRef, inView: contentInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
 
   const { ref: problemRef, inView: problemInView } = useInView({
     triggerOnce: false,
@@ -37,6 +33,15 @@ export default function ProjectPageClient({
     triggerOnce: false,
     threshold: 0.1,
   });
+
+  const formatImageUrl = (image: { asset: { _ref: string } }) => {
+    if(!image?.asset?._ref) {
+      return "/placeholder.svg?height=400&width=600";
+    }
+
+    return `https://cdn.sanity.io/images/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${image.asset._ref.replace("image-", "").replace("-png", ".png")}`
+
+  };
 
   return (
     <div className="bg-background dark:bg-[#212121] rounded-lg min-h-[85vh] flex flex-col">
@@ -73,7 +78,7 @@ export default function ProjectPageClient({
           </div>
         </div>
 
-        <div className="flex items-center space-x-4 mb-4 gap-x-2">
+        <div className="flex items-center w-full mb-4">
           <motion.div
             className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium text-lg "
             style={{ backgroundColor: project.iconBg }}
@@ -83,16 +88,14 @@ export default function ProjectPageClient({
             {project.icon}
           </motion.div>
 
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold ml-2">
             {project.name} - {project.businessOwner}
           </h1>
         </div>
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center  space-x-2">
 
-        <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-          {project.description}
-        </p>
-        <div className="flex items-center gap-x-2">
-          <Link href={project.liveDemo || "#"} className="inline-block mb-6">
+          <Link href={project.liveDemo || "#"} className="inline-block ">
             <motion.button
               className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
              flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3"
@@ -106,7 +109,7 @@ export default function ProjectPageClient({
 
           <Link
             href={project.githubLink || "#"}
-            className="inline-block mb-6 ml-4"
+            className="inline-block "
           >
             <motion.button
               className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
@@ -118,8 +121,8 @@ export default function ProjectPageClient({
               <Github size={16} />
             </motion.button>
           </Link>
-        </div>
-        <div className="flex flex-wrap gap-2 my-5 w-full">
+          </div>
+        <div className="flex flex-wrap  space-x-2 items-center">
           {project.techStack?.map((tech, index) => (
             <div
               key={index}
@@ -130,13 +133,14 @@ export default function ProjectPageClient({
             </div>
           ))}
         </div>
+        </div>
         <motion.div
           className="rounded-lg overflow-hidden mb-6"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <Image
-            src="/placeholder.svg?height=400&width=600"
+            src={formatImageUrl(project.images?.[0] as { asset: { _ref: string } })}
             alt={project.name}
             width={600}
             height={400}
@@ -144,13 +148,17 @@ export default function ProjectPageClient({
           />
         </motion.div>
 
+        <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+          {project.description}
+        </p>
+
         <motion.div
           className="rounded-lg overflow-hidden mb-6"
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <Image
-            src="/placeholder.svg?height=400&width=600"
+            src={formatImageUrl(project.images?.[1] as { asset: { _ref: string } })}
             alt={`${project.name} screenshot 2`}
             width={600}
             height={400}
@@ -179,7 +187,7 @@ export default function ProjectPageClient({
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
         >
           <Image
-            src="/placeholder.svg?height=400&width=600"
+            src={formatImageUrl(project.images?.[2] as { asset: { _ref: string } })}
             alt={`${project.name} screenshot 3`}
             width={600}
             height={400}
@@ -200,6 +208,19 @@ export default function ProjectPageClient({
           <p className="text-zinc-600 dark:text-zinc-400 mb-6">
             {project.solution}
           </p>
+        </motion.div>
+        <motion.div
+          className="rounded-lg overflow-hidden mb-6"
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: "spring", stiffness: 300, damping: 15 }}
+        >
+          <Image
+            src={formatImageUrl(project.images?.[3] as { asset: { _ref: string } })}
+            alt={`${project.name} screenshot 4`}
+            width={600}
+            height={400}
+            className="w-full object-cover"
+          />
         </motion.div>
       </motion.section>
 

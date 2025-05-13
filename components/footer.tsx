@@ -20,7 +20,7 @@ const Footer: React.FC<FooterPops> = ({ hideContact = false }) => {
   });
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("brian.do@example.com");
+    navigator.clipboard.writeText("valomosh254@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -103,21 +103,21 @@ const Footer: React.FC<FooterPops> = ({ hideContact = false }) => {
         <br />
         by
         <Link
-          href="#"
+          href="https://devalentine.me/resume.pdf"
           className="text-zinc-600 dark:text-zinc-300 hover:underline mr-3"
         >
           Valentine Omonya
         </Link>
         //
         <Link
-          href="#"
+          href="https://nextjs.org/"
           className="text-zinc-600 dark:text-zinc-300 hover:underline"
         >
           NextJs
         </Link>
         //
         <Link
-          href="#"
+          href="https://www.framer.com/"
           className="text-zinc-600 dark:text-zinc-300 hover:underline"
         >
           Framer
