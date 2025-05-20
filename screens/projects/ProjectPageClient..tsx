@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Footer from "@/components/footer";
 import ProjectsSection from "@/components/projects";
 import { Projects } from "@/sanity/sanity.types";
-import { useReusableInView } from "@/lib/utils";
 
 interface ProjectPageProps {
   project: Projects;
@@ -18,9 +18,20 @@ export default function ProjectPageClient({
   project,
   projects,
 }: ProjectPageProps) {
-  const { ref: headerRef, inView: headerInView } = useReusableInView();
-  const { ref: problemRef, inView: problemInView } = useReusableInView();
-  const { ref: solutionRef, inView: solutionInView } = useReusableInView();
+  const { ref: headerRef, inView: headerInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const { ref: problemRef, inView: problemInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
+  const { ref: solutionRef, inView: solutionInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
 
   const formatImageUrl = (image: { asset: { _ref: string } }) => {
     if (!image?.asset?._ref) {
@@ -69,7 +80,7 @@ export default function ProjectPageClient({
           </div>
         </div>
 
-        <div className="flex items-center w-full mb-4 gap-x-4">
+        <div className="flex items-center w-full mb-4">
           <motion.div
             className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium text-lg "
             style={{ backgroundColor: project.iconBg }}
@@ -79,7 +90,7 @@ export default function ProjectPageClient({
             {project.icon}
           </motion.div>
 
-          <h1 className="text-3xl font-semibold ">
+          <h1 className="text-3xl font-bold ml-2">
             {project.name} - {project.businessOwner}
           </h1>
         </div>
@@ -88,9 +99,7 @@ export default function ProjectPageClient({
             <Link href={project.liveDemo || "#"} className="inline-block ">
               <motion.button
                 className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
-             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3
-
-             whitespace-nowrap"
+             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3 flex-shrink-0"
                 whileHover={{ scale: 1.03, x: 3 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -102,7 +111,7 @@ export default function ProjectPageClient({
             <Link href={project.githubLink || "#"} className="inline-block ">
               <motion.button
                 className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
-             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3 whitespace-normal"
+             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3 flex-shrink-0"
                 whileHover={{ scale: 1.03, x: 3 }}
                 whileTap={{ scale: 0.97 }}
               >
@@ -111,7 +120,7 @@ export default function ProjectPageClient({
               </motion.button>
             </Link>
           </div>
-          <div className="flex flex-wrap  space-x-2 space-y-2 items-center">
+          <div className="flex flex-wrap  space-x-2 space-y-3 gap-y-4 items-center ">
             {project.techStack?.map((tech, index) => (
               <div
                 key={index}
