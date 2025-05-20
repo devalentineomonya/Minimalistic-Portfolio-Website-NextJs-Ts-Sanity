@@ -18,7 +18,9 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      className="bg-white dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] rounded-xl p-5 cursor-pointer overflow-hidden shadow-[rgba(10,_10,_10,_0.06)_0px_1.2px_1.2px_0px,_rgba(10,_10,_10,_0.04)_0px_5px_10px_0px]"
+      className="bg-white dark:bg-[#373737] border dark:border-[#424242]
+      border-[#f0f0f0] rounded-xl p-5 cursor-pointer overflow-hidden
+      shadow-[rgba(10,_10,_10,_0.06)_0px_1.2px_1.2px_0px,_rgba(10,_10,_10,_0.04)_0px_5px_10px_0px]"
       initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: inView ? 1 : 0,
@@ -38,7 +40,7 @@ export default function ProjectCard({
       <Link href={`/projects/${project.id}`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            
+
             <motion.div
               className="h-12 w-12 rounded-lg flex items-center justify-center text-white font-medium text-lg "
               style={{ backgroundColor: project.iconBg }}

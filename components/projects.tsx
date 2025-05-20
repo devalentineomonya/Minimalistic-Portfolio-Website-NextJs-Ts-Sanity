@@ -1,29 +1,29 @@
 "use client";
 
 import React from "react";
-import { useInView } from "react-intersection-observer";
 import { ChevronRight } from "lucide-react";
 import ProjectCard from "./project-card";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Projects } from "@/sanity/sanity.types";
-import { cn } from "@/lib/utils";
+import { cn, useReusableInView } from "@/lib/utils";
 
 interface ProjectsSectionProps {
   projects: Projects[];
-  className?:string
+  className?: string;
 }
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects,className }) => {
-  const { ref: projectsRef, inView: projectsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({
+  projects,
+  className,
+}) => {
+  const { ref: projectsRef, inView: projectsInView } = useReusableInView();
   return (
     <motion.section
       ref={projectsRef}
-      className={cn("dark:bg-[#2c2c2c] bg-zinc-100  rounded-xl px-3 py-6 mb-6",
+      className={cn(
+        "dark:bg-[#2c2c2c] bg-zinc-100  rounded-xl px-3 py-6 mb-6",
         className
-  )}
+      )}
       initial={{ opacity: 0, y: 30 }}
       animate={{
         opacity: projectsInView ? 1 : 0.5,

@@ -1,19 +1,16 @@
 "use client";
 
 import React from "react";
-import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import ProductCard from "./product-card";
 import { Products } from "@/sanity/sanity.types";
+import { useReusableInView } from "@/lib/utils";
 interface ProductsSectionProps {
   products: Products[];
 }
 
 const ProductsSection: React.FC<ProductsSectionProps> = ({ products }) => {
-  const { ref: productsRef, inView: productsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
+  const { ref: productsRef, inView: productsInView } = useReusableInView();
 
   return (
     <motion.section

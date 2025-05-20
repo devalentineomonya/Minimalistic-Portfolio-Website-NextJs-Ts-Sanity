@@ -1,11 +1,11 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import ProjectCard from "@/components/project-card";
 import Footer from "@/components/footer";
 import ProductsSection from "@/components/products";
 import { Products, Projects } from "@/sanity/sanity.types";
+import { useReusableInView } from "@/lib/utils";
 
 export default function ProjectsPageClient({
   projects,
@@ -14,16 +14,9 @@ export default function ProjectsPageClient({
   projects: Projects[];
   products: Products[];
 }) {
-  const { ref: projectsRef, inView: projectsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
+  const { ref: projectsRef, inView: projectsInView } = useReusableInView();
 
-  const { ref: productsRef, inView: productsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-
+  const { ref: productsRef, inView: productsInView } = useReusableInView();
 
   return (
     <div className="bg-background dark:bg-[#212121] rounded-lg  min-h-[85vh] flex flex-col">

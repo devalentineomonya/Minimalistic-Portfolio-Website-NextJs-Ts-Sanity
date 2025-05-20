@@ -1,20 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
-import { useInView } from "react-intersection-observer";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Copy } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useReusableInView } from "@/lib/utils";
 
 const HeroSection = () => {
   const [copied, setCopied] = useState(false);
   const isMobile = useIsMobile();
-  const { ref: heroRef, inView: heroInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.2,
-  });
+  const { ref: heroRef, inView: heroInView } = useReusableInView();
 
   const copyEmail = () => {
     navigator.clipboard.writeText("valomosh254@gmail.com");

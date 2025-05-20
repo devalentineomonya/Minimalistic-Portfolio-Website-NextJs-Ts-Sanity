@@ -60,7 +60,8 @@ export default function NotFound() {
         <div className="flex flex-wrap justify-center gap-3">
           <Link href="/">
             <motion.button
-              className="flex items-center space-x-2 bg-white border dark:bg-[#212121] text-zinc-800 dark:text-zinc-200 px-4 py-2 rounded-md text-sm"
+              className="flex items-center space-x-2 bg-white border dark:bg-[#212121] text-zinc-800
+               dark:text-zinc-200 px-4 py-2 rounded-md text-sm"
               whileHover={{ scale: 1.03, x: -3 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -70,7 +71,9 @@ export default function NotFound() {
 
           <Link href="/projects">
             <motion.button
-              className="flex items-center space-x-2 bg-black dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] text-white px-4 py-2 rounded-md text-sm shadow-[0px_8px_16px_0px_rgba(22,_22,_22,_0),_0px_1px_1px_0px_rgba(23,_23,_23,_0.1),_inset_0px_-1px_1px_0px_var(rgba(204,_204,_204,_.1),_rgb(77,_77,_77)),_0px_0px_0px_5px_var(rgba(0,_0,_0,_0.16),rgba(0,_0,_0,_0.1))]"
+              className="flex items-center space-x-2 bg-black dark:bg-[#373737] border dark:border-[#424242]
+               border-[#f0f0f0] text-white px-4 py-2 rounded-md text-sm
+                shadow-[0px_8px_16px_0px_rgba(22,_22,_22,_0),_0px_1px_1px_0px_rgba(23,_23,_23,_0.1),_inset_0px_-1px_1px_0px_var(rgba(204,_204,_204,_.1),_rgb(77,_77,_77)),_0px_0px_0px_5px_var(rgba(0,_0,_0,_0.16),rgba(0,_0,_0,_0.1))]"
               whileHover={{ scale: 1.03, x: 3 }}
               whileTap={{ scale: 0.97 }}
             >

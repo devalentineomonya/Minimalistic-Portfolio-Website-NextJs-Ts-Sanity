@@ -1,11 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import Footer from "@/components/footer";
 import ProductCard from "@/components/product-card";
 import ProjectsSection from "@/components/projects";
 import { Products, Projects } from "@/sanity/sanity.types";
+import { useReusableInView } from "@/lib/utils";
 
 interface ProductsClientProps {
   products: Products[];
@@ -16,16 +16,9 @@ export default function ProductsClient({
   products,
   projects,
 }: ProductsClientProps) {
-  const { ref: productsRef, inView: productsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
+  const { ref: productsRef, inView: productsInView } = useReusableInView();
 
-  const { ref: projectsRef, inView: projectsInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.1,
-  });
-
+  const { ref: projectsRef, inView: projectsInView } = useReusableInView();
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
