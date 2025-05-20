@@ -99,11 +99,11 @@ export default function ProjectPageClient({
             <Link href={project.liveDemo || "#"} className="inline-block ">
               <motion.button
                 className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
-             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3 flex-shrink-0"
+             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3"
                 whileHover={{ scale: 1.03, x: 3 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <span>Visit Website</span>
+                <span className="whitespace-nowrap">Visit Website</span>
                 <ExternalLink size={16} />
               </motion.button>
             </Link>
@@ -111,16 +111,16 @@ export default function ProjectPageClient({
             <Link href={project.githubLink || "#"} className="inline-block ">
               <motion.button
                 className="text-sm text-zinc-600 dark:bg-[#373737] border dark:border-[#424242] border-[#f0f0f0] dark:text-zinc-400
-             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3 flex-shrink-0"
+             flex items-center hover:text-zinc-900 dark:hover:text-white transition-colors bg-background shadow p-2 rounded-md gap-x-3"
                 whileHover={{ scale: 1.03, x: 3 }}
                 whileTap={{ scale: 0.97 }}
               >
-                <span>Visit Github</span>
+                <span className="whitespace-nowrap">Visit Github</span>
                 <Github size={16} />
               </motion.button>
             </Link>
           </div>
-          <div className="flex flex-wrap  space-x-2 space-y-3 gap-y-4 items-center ">
+          <div className="flex flex-wrap  space-x-2 items-center">
             {project.techStack?.map((tech, index) => (
               <div
                 key={index}
